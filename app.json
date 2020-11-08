@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "AwesomeProject",
-    "slug": "AwesomeProject",
+    "name": "Persona",
+    "slug": "Persona",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/Persona.png",
@@ -19,7 +19,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -28,13 +30,6 @@
     },
     "android": {
       "package": "com.ask.persona"
-      // "splash": {
-      //   "mdpi": "assets/splash/mdpi/splash.png",
-      //   "hdpi": "assets/splash/hdpi/splash.png",
-      //   "xhdpi": "assets/splash/xhdpi/splash.png",
-      //   "xxhdpi": "assets/splash/xxhdpi/splash.png",
-      //   "xxxhdpi": "assets/splash/xxxhdpi/splash.png"
-      // }
     }
   }
 }

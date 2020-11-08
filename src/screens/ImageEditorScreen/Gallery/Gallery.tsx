@@ -56,7 +56,6 @@ class ImagePickerExample extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchImage: (result: any) => dispatch(fetchImage(result)),
     loadingStart: () => dispatch(LoadingStarted()),
     loadingStop: () => dispatch(LoadingStopped()),
   };
