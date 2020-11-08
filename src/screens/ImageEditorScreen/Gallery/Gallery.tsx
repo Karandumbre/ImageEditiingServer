@@ -42,7 +42,6 @@ class ImagePickerExample extends React.Component {
   _pickImage = async () => {
     this.props.showInitialImage();
     try {
-      console.log(this.props.filter)
       this.props.loadingStart();
       const got = await takeAndUploadPhotoAsync(this.props.filter);
       this.props.selectPicture(got?.data.imageData);

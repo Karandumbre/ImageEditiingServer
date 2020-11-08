@@ -62,8 +62,6 @@ class ImageEditor extends React.Component<Props, State> {
   );
 
   selectPicture = (event: any) => {
-    console.log(event);
-
     if (event) {
       const photo = {
         ...this.state.source,
