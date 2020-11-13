@@ -61,16 +61,18 @@ class ImageEditor extends React.Component<Props, State> {
     </FlashMessageViewWrapper>
   );
 
-  selectPicture = (event: any, imageName) => {
-    const photo = {
-      ...this.state.source,
-    };
-    photo.uri = `data:image/png;base64,${event}`;
-    this.setState({
-      source: photo,
-      isDownload: true,
-      base64: event,
-    });
+  selectPicture = (event: any) => {
+    if (event) {
+      const photo = {
+        ...this.state.source,
+      };
+      photo.uri = `data:image/png;base64,${event}`;
+      this.setState({
+        source: photo,
+        isDownload: true,
+        base64: event,
+      });
+    }
   };
 
   todo = async (event: string) => {

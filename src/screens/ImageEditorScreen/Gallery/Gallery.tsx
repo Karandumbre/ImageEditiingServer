@@ -1,8 +1,7 @@
 import * as React from "react";
 import { View, Platform } from "react-native";
-import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
-import { handleUploadImage } from "../../../utils/http.service";
+import { takeAndUploadPhotoAsync } from "../../../utils/http.service";
 import { TouchableOpacityWrapper, IonIconsWrapper } from "./Gallery.styled";
 import { connect } from "react-redux";
 import { LoadingStarted, LoadingStopped } from "../../../ReduxAsync/actions";
@@ -42,40 +41,19 @@ class ImagePickerExample extends React.Component {
   _pickImage = async () => {
     this.props.showInitialImage();
     try {
-      let result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.Images,
-        base64: true,
-        allowsEditing: true,
-        quality: 1,
-      });
-      if (!result.cancelled) {
-        this.props.loadingStart();
-        result.filter = this.props.filter;
-
-        handleUploadImage(result)
-          .then((res) => {
-            this.props.selectPicture(res.data.status);
-            this.props.loadingStop();
-          })
-          .catch((error) => {
-            this.props.loadingStop();
-            console.log(
-              "There has been a problem with your fetch operation: " +
-                error.message
-            );
-            throw error;
-          });
-      }
+      this.props.loadingStart();
+      const got = await takeAndUploadPhotoAsync(this.props.filter);
+      this.props.selectPicture(got?.data.imageData);
+      this.props.loadingStop();
     } catch (E) {
       this.props.loadingStop();
-      console.log(E);
     }
   };
 }
 
+
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchImage: (result: any) => dispatch(fetchImage(result)),
     loadingStart: () => dispatch(LoadingStarted()),
     loadingStop: () => dispatch(LoadingStopped()),
   };

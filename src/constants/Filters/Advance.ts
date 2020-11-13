@@ -18,7 +18,7 @@ export default [
     width: 640,
     height: 380,
     source: require("../../../assets/panel1/1977.jpg"),
-    filter: "1977",
+    filter: "_1977",
   },
   {
     id: "36334926986",
@@ -68,10 +68,10 @@ export default [
     height: 480,
     title: "Fear of heights?",
     source: require("../../../assets/panel1/1977_2.jpg"),
-    filter: "1977_2",
+    filter: "_1977_2",
   },
   {
-    id: "36383381605",
+    id: "36383381609",
     postedBy: "Gerhard R.",
     width: 640,
     height: 421,
