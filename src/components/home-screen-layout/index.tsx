@@ -3,7 +3,7 @@ import { StyleSheet, View, Dimensions, FlatList } from "react-native";
 
 import { processImages, buildRows, normalizeRows } from "../../utils/utils";
 import PhotoGallery from "./PhotoGallery";
-import GridItem from "./GridItem";
+import GridItem from "./grid-layout";
 
 const maxWidth = Dimensions.get("window").width;
 

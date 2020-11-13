@@ -1,8 +1,8 @@
 import * as React from "react";
 import { View } from "react-native";
-import Home from "./HomeScreen/Index";
+import Home from "../components/home-screen-layout";
 import { Basic } from "./../utils/photos";
-import { styles } from "./ContainerStyleSheet";
+import { styles } from "../styles/container-style-sheet";
 
 export default function TabTwoScreen(props: any) {
   return (

@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { TouchableOpacity, View, Dimensions } from "react-native";
 import Contants from "expo-constants";
 
-import Layout from "./../../constants/Layout";
+import Layout from "../../constants/Layout";
 const width = Layout.window.width;
 const height = Layout.window.height;
 

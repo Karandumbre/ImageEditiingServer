@@ -1,10 +1,10 @@
 import * as React from "react";
 import { View, Platform } from "react-native";
 import * as Permissions from "expo-permissions";
-import { takeAndUploadPhotoAsync } from "../../../utils/http.service";
-import { TouchableOpacityWrapper, IonIconsWrapper } from "./Gallery.styled";
+import { takeAndUploadPhotoAsync } from "../../utils/http.service";
+import { TouchableOpacityWrapper, IonIconsWrapper } from "./gallery-image-picker.styled";
 import { connect } from "react-redux";
-import { LoadingStarted, LoadingStopped } from "../../../ReduxAsync/actions";
+import { LoadingStarted, LoadingStopped } from "../../ReduxAsync/actions";
 class ImagePickerExample extends React.Component {
   state = {
     image: null,

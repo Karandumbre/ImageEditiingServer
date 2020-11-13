@@ -1,16 +1,16 @@
 import React from "react";
 import { View, Image, Dimensions, Text } from "react-native";
-import Gallery from "./Gallery/Gallery";
+import Gallery from "../gallery-image-picker";
 import * as FileSystem from "expo-file-system";
 import * as MediaLibrary from "expo-media-library";
 import { connect } from "react-redux";
-import Loader from "./../Loader/Loader";
+import Loader from "../loader/loader";
 import {
   FileDownloadIconWrapper,
   TouchableOpacityWrapper,
   ViewContainer,
   FlashMessageViewWrapper,
-} from "./ImageEditor.styled";
+} from "./image-editor-screen.styled";
 import Contants from "expo-constants";
 
 const maxWidth = Dimensions.get("window").width;

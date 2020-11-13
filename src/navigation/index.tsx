@@ -12,7 +12,7 @@ import { RootStackParamList } from "../../types";
 import BottomTabNavigator from "./BottomTabNavigator";
 import LinkingConfiguration from "./LinkingConfiguration";
 import ActionBar from "./../components/ActionBar";
-import ImageEditor from "../screens/ImageEditorScreen/ImageEditor";
+import ImageEditor from "../components/image-editor-screen";
 
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
