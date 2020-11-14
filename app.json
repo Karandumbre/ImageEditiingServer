@@ -24,7 +24,7 @@
       "bundleIdentifier": "com.ask.persona",
       "supportsTablet": true,
       "config": {
-        "googleMobileAdsAppId": "ca-app-pub-3940256099942544~1458002511" // sample id, replace with your own
+        "googleMobileAdsAppId": "" // sample id, replace with your own
       }
     },
     "web": {
@@ -33,7 +33,7 @@
     "android": {
       "package": "com.ask.persona",
       "config":{      
-        "googleMobileAdsAppId": "ca-app-pub-3940256099942544~3347511713" // sample id, replace with your own
+        "googleMobileAdsAppId": "ca-app-pub-3945058741555501~9994131281" // sample id, replace with your own
       }
     }
   }
