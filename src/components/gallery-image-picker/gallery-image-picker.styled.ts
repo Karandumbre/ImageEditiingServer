@@ -10,7 +10,6 @@ export const TextWrapper = styled(Text)`
   text-transform: uppercase;
 `;
 export const TouchableOpacityWrapper = styled(TouchableOpacity)`
-  background: #6200ee;
   border-radius: 100px;
   width: 50px;
   z-index: 1;

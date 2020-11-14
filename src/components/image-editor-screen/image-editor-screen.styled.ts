@@ -13,7 +13,7 @@ export const FileDownloadIconWrapper = styled(Ionicons)`
 `;
 
 export const TouchableOpacityWrapper = styled(TouchableOpacity)`
-  background: #6200ee;
+  background: #48494b;
   border-radius: 100px;
   width: 50px;
   height: 50px

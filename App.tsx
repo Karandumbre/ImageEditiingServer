@@ -4,7 +4,6 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import useCachedResources from "./src/hooks/useCachedResources";
 import useColorScheme from "./src/hooks/useColorScheme";
 import Navigation from "./src/navigation";
-import store from "./src/ReduxAsync/store";
 import { Provider } from "react-redux";
 import * as Network from "expo-network";
 import NoConnection from "./src/components/no-connection";
@@ -53,12 +52,10 @@ export default function App() {
     return null;
   } else if (connectedToNetwork) {
     return (
-      <Provider store={store}>
-        <SafeAreaProvider>
-          <Navigation colorScheme={colorScheme} />
-          <StatusBar style="light" />
-        </SafeAreaProvider>
-      </Provider>
+      <SafeAreaProvider>
+        <Navigation colorScheme={colorScheme} />
+        <StatusBar style="light" />
+      </SafeAreaProvider>
     );
   } else {
     return (

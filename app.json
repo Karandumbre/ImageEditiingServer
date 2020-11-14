@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "AwesomeProject",
-    "slug": "AwesomeProject",
+    "name": "Persona",
+    "slug": "Persona",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/Persona.png",
@@ -21,20 +21,20 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.ask.persona",
+      "supportsTablet": true,
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-3940256099942544~1458002511" // sample id, replace with your own
+      }
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
     },
     "android": {
-      "package": "com.ask.persona"
-      // "splash": {
-      //   "mdpi": "assets/splash/mdpi/splash.png",
-      //   "hdpi": "assets/splash/hdpi/splash.png",
-      //   "xhdpi": "assets/splash/xhdpi/splash.png",
-      //   "xxhdpi": "assets/splash/xxhdpi/splash.png",
-      //   "xxxhdpi": "assets/splash/xxxhdpi/splash.png"
-      // }
+      "package": "com.ask.persona",
+      "config":{      
+        "googleMobileAdsAppId": "ca-app-pub-3940256099942544~3347511713" // sample id, replace with your own
+      }
     }
   }
 }

@@ -1,9 +1,8 @@
 import React from "react";
-import { View, Image, Dimensions, Text } from "react-native";
+import { View, Image, Dimensions, Text, ImageBackground } from "react-native";
 import Gallery from "../gallery-image-picker";
 import * as FileSystem from "expo-file-system";
 import * as MediaLibrary from "expo-media-library";
-import { connect } from "react-redux";
 import Loader from "../loader/loader";
 import {
   FileDownloadIconWrapper,
@@ -24,6 +23,8 @@ type State = {
   source: any;
   isDownload: boolean;
   base64: string;
+  flashMessage: boolean;
+  isLoading: boolean;
 };
 
 class ImageEditor extends React.Component<Props, State> {
@@ -34,6 +35,7 @@ class ImageEditor extends React.Component<Props, State> {
       isDownload: false,
       base64: "",
       flashMessage: false,
+      isLoading: false,
     };
   }
 
@@ -60,6 +62,14 @@ class ImageEditor extends React.Component<Props, State> {
       <Text style={{ color: "white", fontSize: 16 }}>{message}</Text>
     </FlashMessageViewWrapper>
   );
+
+  startLoading = () => {
+    this.setState({ isLoading: true });
+  };
+
+  stopLoading = () => {
+    this.setState({ isLoading: false });
+  };
 
   selectPicture = (event: any) => {
     if (event) {
@@ -91,7 +101,7 @@ class ImageEditor extends React.Component<Props, State> {
   render() {
     return (
       <View>
-        {this.props.imageData.loading && <Loader />}
+        {this.state.isLoading && <Loader />}
 
         <Image
           source={this.state.source}
@@ -113,6 +123,8 @@ class ImageEditor extends React.Component<Props, State> {
             selectPicture={this.selectPicture}
             showInitialImage={this.showInitialImage}
             filter={this.props.route.params.filter}
+            startLoading={this.startLoading}
+            stopLoading={this.stopLoading}
           ></Gallery>
 
           {this.state.isDownload && (
@@ -120,11 +132,21 @@ class ImageEditor extends React.Component<Props, State> {
               <TouchableOpacityWrapper
                 onPress={() => this.todo(this.state.base64)}
               >
-                <FileDownloadIconWrapper
-                  name="md-download"
-                  size={40}
-                  color="white"
-                />
+                <ImageBackground
+                  source={require("./../../../assets/download.jpeg")}
+                  style={{
+                    height: 50,
+                    width: 50,
+                    borderRadius: 100,
+                    overflow: "hidden",
+                  }}
+                >
+                  <FileDownloadIconWrapper
+                    name="md-download"
+                    size={40}
+                    color="white"
+                  />
+                </ImageBackground>
               </TouchableOpacityWrapper>
             </View>
           )}
@@ -134,10 +156,4 @@ class ImageEditor extends React.Component<Props, State> {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    imageData: state.serverData,
-  };
-};
-
-export default connect(mapStateToProps)(ImageEditor);
+export default ImageEditor;

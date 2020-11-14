@@ -1,34 +1,38 @@
 import React, { Component } from "react";
-import { View, Image, StyleSheet, Text, ActivityIndicator } from "react-native";
+import { View, Image, StyleSheet } from "react-native";
 import Layout from "./../../constants/Layout";
 const width = Layout.window.width;
 const height = Layout.window.height;
-const Loader = () => {
-  return (
-    <View style={styles.container}>
-      <View style={[styles.containerAnother, styles.horizontal]}>
-        <Image
-          style={{
-            width: width,
-            height: height,
-            resizeMode: "contain",
-          }}
-          // source={require("./../../../assets/Persona.png")}
-          source={require("./../../../assets/personasmall.gif")}
-        />
-        {/* <ActivityIndicator
-          size="large"
-          color="red"
-          style={{
-            position: "absolute",
-            right: width / 2,
-            top: height / 2 + 90,
-          }}
-        /> */}
+import { AdMobInterstitial } from "expo-ads-admob";
+import { interstitialVideoId } from "./../../../admobIds";
+class Loader extends Component {
+  async componentDidMount() {
+    try {
+      await AdMobInterstitial.setAdUnitID(interstitialVideoId); // Test ID, Replace with your-admob-unit-id
+      await AdMobInterstitial.requestAdAsync();
+      await AdMobInterstitial.showAdAsync();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={[styles.containerAnother, styles.horizontal]}>
+          <Image
+            style={{
+              width: width,
+              height: height,
+              resizeMode: "contain",
+            }}
+            source={require("./../../../assets/personasmall.gif")}
+          />
+        </View>
       </View>
-    </View>
-  );
-};
+    );
+  }
+}
 
 var styles = StyleSheet.create({
   container: {
