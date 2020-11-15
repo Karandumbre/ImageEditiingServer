@@ -11,6 +11,8 @@ import {
   FlashMessageViewWrapper,
 } from "./image-editor-screen.styled";
 import Contants from "expo-constants";
+import { PRIVACY_POLICY } from "./contants";
+import PrivacyPolicyComponent from "./../privacy-policy/privacy-policy";
 
 const maxWidth = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -30,6 +32,7 @@ type State = {
 class ImageEditor extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
+
     this.state = {
       source: props.route.params.source,
       isDownload: false,
@@ -100,58 +103,65 @@ class ImageEditor extends React.Component<Props, State> {
 
   render() {
     return (
-      <View>
-        {this.state.isLoading && <Loader />}
+      <React.Fragment>
+        {this.props.route.params.filter !== PRIVACY_POLICY && (
+          <View>
+            {this.state.isLoading && <Loader />}
 
-        <Image
-          source={this.state.source}
-          style={{
-            width: maxWidth,
-            height: height,
-            resizeMode: "contain",
-            position: "absolute",
-            top: Contants.statusBarHeight,
-          }}
-        />
+            <Image
+              source={this.state.source}
+              style={{
+                width: maxWidth,
+                height: height,
+                resizeMode: "contain",
+                position: "absolute",
+                top: Contants.statusBarHeight,
+              }}
+            />
 
-        {this.state.flashMessage === true
-          ? this.flashMessageWrapper("File Downloaded Successfully")
-          : null}
+            {this.state.flashMessage === true
+              ? this.flashMessageWrapper("File Downloaded Successfully")
+              : null}
 
-        <ViewContainer isDownload={this.state.isDownload}>
-          <Gallery
-            selectPicture={this.selectPicture}
-            showInitialImage={this.showInitialImage}
-            filter={this.props.route.params.filter}
-            startLoading={this.startLoading}
-            stopLoading={this.stopLoading}
-          ></Gallery>
+            <ViewContainer isDownload={this.state.isDownload}>
+              <Gallery
+                selectPicture={this.selectPicture}
+                showInitialImage={this.showInitialImage}
+                filter={this.props.route.params.filter}
+                startLoading={this.startLoading}
+                stopLoading={this.stopLoading}
+              ></Gallery>
 
-          {this.state.isDownload && (
-            <View>
-              <TouchableOpacityWrapper
-                onPress={() => this.todo(this.state.base64)}
-              >
-                <ImageBackground
-                  source={require("./../../../assets/download.jpeg")}
-                  style={{
-                    height: 50,
-                    width: 50,
-                    borderRadius: 100,
-                    overflow: "hidden",
-                  }}
-                >
-                  <FileDownloadIconWrapper
-                    name="md-download"
-                    size={40}
-                    color="white"
-                  />
-                </ImageBackground>
-              </TouchableOpacityWrapper>
-            </View>
-          )}
-        </ViewContainer>
-      </View>
+              {this.state.isDownload && (
+                <View>
+                  <TouchableOpacityWrapper
+                    onPress={() => this.todo(this.state.base64)}
+                  >
+                    <ImageBackground
+                      source={require("./../../../assets/download.jpeg")}
+                      style={{
+                        height: 50,
+                        width: 50,
+                        borderRadius: 100,
+                        overflow: "hidden",
+                      }}
+                    >
+                      <FileDownloadIconWrapper
+                        name="md-download"
+                        size={40}
+                        color="white"
+                      />
+                    </ImageBackground>
+                  </TouchableOpacityWrapper>
+                </View>
+              )}
+            </ViewContainer>
+          </View>
+        )}
+        {this.props.route.params.filter === PRIVACY_POLICY && (
+          <PrivacyPolicyComponent />
+        )}
+      </React.Fragment>
     );
   }
 }

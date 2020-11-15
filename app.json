@@ -13,8 +13,8 @@
       "backgroundColor": "#000000"
     },
     "androidStatusBar": {
-      "backgroundColor": "#212121",
-      "translucent": true
+      "backgroundColor": "#000000",
+      "translucent": false
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -32,6 +32,7 @@
     },
     "android": {
       "package": "com.ask.persona",
+      "versionCode": 2,
       "config":{      
         "googleMobileAdsAppId": "ca-app-pub-3945058741555501~9994131281" // sample id, replace with your own
       }

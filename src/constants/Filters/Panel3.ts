@@ -62,4 +62,11 @@ export default [
     source: require("../../../assets/panel3/halfrose.jpg"),
     filter: "halfrose",
   },
+  {
+    id: "36215026878",
+    width: 640,
+    height: 480,
+    source: require("../../../assets/panel3/privacy.png"),
+    filter: "privacy_policy",
+  },
 ];
