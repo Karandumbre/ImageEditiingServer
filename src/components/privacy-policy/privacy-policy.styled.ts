@@ -1,6 +1,5 @@
-import { Ionicons } from "@expo/vector-icons";
-import styled, { css } from "styled-components";
-import { TouchableOpacity, View, Dimensions, Text } from "react-native";
+import styled from "styled-components";
+import { View, Text } from "react-native";
 import Contants from "expo-constants";
 
 export const PrivacyPolicyMainContainerView = styled(View)`
