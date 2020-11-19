@@ -24,7 +24,7 @@
       "bundleIdentifier": "com.ask.persona",
       "supportsTablet": true,
       "config": {
-        "googleMobileAdsAppId": "" // sample id, replace with your own
+        "googleMobileAdsAppId": ""
       }
     },
     "web": {
@@ -35,7 +35,7 @@
       "versionCode": 4,
       "permissions": ["READ_EXTERNAL_STORAGE", "WRITE_EXTERNAL_STORAGE", "CAMERA", "ACCESS_NETWORK_STATE", "ACCESS_WIFI_STATE" ],
       "config":{      
-        "googleMobileAdsAppId": "ca-app-pub-3945058741555501~9994131281" // sample id, replace with your own
+        "googleMobileAdsAppId": "ca-app-pub-3945058741555501~9994131281"
       }
     }
   }

@@ -1,7 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useState } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import useCachedResources from "./src/hooks/useCachedResources";
 import useColorScheme from "./src/hooks/useColorScheme";
 import Navigation from "./src/navigation";
 import * as Network from "expo-network";
@@ -25,7 +24,6 @@ const checkNetwork = async () => {
 };
 
 export default function App() {
-  const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
   const [connectedToNetwork, setConnectedToNetwork] = useState(false);
   const [refreshing, setRefreshing] = React.useState(false);
@@ -47,9 +45,7 @@ export default function App() {
     });
   }, []);
 
-  if (!isLoadingComplete) {
-    return null;
-  } else if (connectedToNetwork) {
+  if (connectedToNetwork) {
     return (
       <SafeAreaProvider>
         <Navigation colorScheme={colorScheme} />

@@ -267,7 +267,7 @@ function PrivacyPolicy() {
           <PrivacyPolicyHeadingStyled>Contact Us</PrivacyPolicyHeadingStyled>
           <PrivacyPolicyParagraphStyled>
             If you have any questions or suggestions about my Privacy Policy, do
-            not hesitate to contact me at karandumbre16@gmail.com.
+            not hesitate to contact me at personastudio60@gmail.com.
           </PrivacyPolicyParagraphStyled>
         </PrivacyPolicyContainer>
       </ScrollView>

@@ -2,6 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as React from "react";
+import ActionBar from "./../components/ActionBar";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
@@ -80,9 +81,10 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="TabOneScreen"
         component={TabOneScreen}
-        options={{
+        options={() => ({
           headerTitle: "Dribble",
-        }}
+          headerShown: false,
+        })}
       />
     </TabOneStack.Navigator>
   );
@@ -96,7 +98,10 @@ function TabTwoNavigator() {
       <TabTwoStack.Screen
         name="TabTwoScreen"
         component={TabTwoScreen}
-        options={{ headerTitle: "Venner" }}
+        options={{
+          headerTitle: "Venner",
+          headerShown: false,
+        }}
       />
     </TabTwoStack.Navigator>
   );
@@ -110,7 +115,10 @@ function TabThreeNavigator() {
       <TabThreeStack.Screen
         name="TabThreeScreen"
         component={TabThreeScreen}
-        options={{ headerTitle: "Color Wash" }}
+        options={{
+          headerTitle: "Color Wash",
+          headerShown: false,
+        }}
       />
     </TabThreeStack.Navigator>
   );
